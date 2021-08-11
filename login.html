@@ -7,39 +7,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/StyleLogin.css" rel="stylesheet">
+</head>
+<body>
+  
 
-  <div id="login-button">
-    <img src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png">
-    </img>
-  </div>
-  <div id="container">
-    <h1>Log In</h1>
-    <span class="close-btn">
-      <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
-    </span>
-    <form>
-      <input type="email" name="email" placeholder="E-mail">
-      <input type="password" name="pass" placeholder="Password">
-      <a href="#">Log in</a>
-      <div id="remember-container">
+    <div class ="login-box">
+    <img  class="avatar"src="img/login.png" alt="logo de login">
+    <h1>Inicia sesion</h1>
+    <form id="formulario">
+      <label for="usuario">Ingrese su usuario</label>
+      <input type="text" name="usuario" placeholder="Ingrese usuario" required>
+      <label for="pass">Ingrese su contraseña</label>
+      <input type="password" name="pass" placeholder="Ingrese contraseña" required>
+      <input type= "submit"  id="login-button"value="Iniciar Sesion">
+      <div id="recuerdame-container">
         <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked"/>
-        <span id="remember">Recuerdame</span>
-        <span id="forgotten">Olvidaste la contraseña</span>
+        <span id="recuerdame">Recuerdame</span>
+        <a href="#">¿Olvidaste tu contraseña?</a>
+        <a href="#">¿Quieres crear una cuenta?</a>
       </div>
-  </form>
-  </div>
-  
-  
-  <div id="forgotten-container">
-     <h1>Forgotten</h1>
-    <span class="close-btn">
-      <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
-    </span>
-  
-    <form>
-      <input type="email" name="email" placeholder="E-mail">
-      <a href="#" class="orange-btn">Get new password</a>
-  </form>
-  </div>
-    
-  </html>
+    </form>
+
+</body>
+</html>
