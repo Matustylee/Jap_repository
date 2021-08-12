@@ -16,8 +16,8 @@ body {
 .login-box{
     width: 420px;
     height: 620px;
-    background: rgba(255, 0, 0, 0.25);
-    box-shadow: 1px 1px 50px rgb(58, 0, 0);
+    background:rgba(40, 116, 166, 0.904) ;
+    box-shadow: 1px 1px 50px rgb(3, 17, 95);
     color: black;
     top: 50%;
     left: 50%;
