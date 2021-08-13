@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/stylelogin.css" rel="stylesheet">
-  <script src="js/login.js"></script>
+  <script src=></script>
 </head>
 <body>
   
@@ -19,12 +19,12 @@
     <div class ="login-box">
     
     <h1>Inicia Sesion</h1>
-    <form id="formulario">
+    <form id="formulario" action="home.html" method="post">
       <label for="usuario">Ingrese su usuario:</label>
-      <input type="text" name="usuario" placeholder="Ingrese usuario" required>
+      <input type="text" name="usuario" placeholder="Ingrese usuario" required >
       <label for="pass">Ingrese su contraseña:</label>
-      <input type="password" name="pass" placeholder="Ingrese contraseña" required>
-      <input type= "submit" onclick=ingreso() id="login-button" value="Iniciar Sesion">
+      <input type="password" name="pass" placeholder="Ingrese contraseña" required >
+      <input type= "submit" id="login-button" value="Iniciar Sesion">
       <div id="recuerdame-container">
         <input type="checkbox" id="checkbox1" class="checkbox" checked="checked"/>
         <span id="recuerdame">Recuérdame</span><br>
