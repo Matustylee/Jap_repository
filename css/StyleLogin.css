@@ -1,9 +1,9 @@
 body {
-  padding: 0;
   margin: 0;
-  background: url('../img/cover_back.png') ;
-  background-size: contain ;
-  background-position: center;
+  padding: 0;
+  background: url("../img/loginwallpaper.png");
+  background-size: contain;
+  background-position: center ;
   background-repeat: repeat;
   height: 100vh;
   color: black;
@@ -15,35 +15,94 @@ body {
 
 .login-box{
     width: 420px;
-    height: 620px;
-    background:rgba(40, 116, 166, 0.904) ;
-    box-shadow: 1px 1px 50px rgb(3, 17, 95);
-    color: black;
+    height: 580px;
+    background:rgba(16, 78, 119, 0.904) ;
+    box-shadow: 1px 1px 50px rgb(2, 18, 107);
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    padding: 70px 30px;
+    padding: 30px 30px;
 
 
 }
 
-.login-box .avatar{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    position:absolute;
-    top:-75px;
-    left: calc(50% - 75px);
-}
 
-.login h1 {
-    margin:0;
-    padding: 0;
+
+.login-box h1 {
+    margin: 0px;
+    padding: 0px 0 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 55px;
+    font-weight: bold;
+    color: rgb(201, 204, 16);    
+    
+
+}
+.login-box label{
+    margin: 0;
+    padding:0;
     font-weight: bold;
     display: block;
+    color: rgb(2, 2, 65);
+    font-size: 25px;
 
 }
 
+.login-box input{
+    width: 100%;
+    margin-bottom: 20px;
+    
+}
 
+.login-box input[type="text"],
+.login-box input[type="password"]{
+    border: none;
+    border-bottom: 1px solid rgba(168, 15, 117, 0.993);
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+
+}
+
+.login-box ::placeholder{
+    color: rgba(255, 255, 255, 0.493);
+}
+#login-button{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: rgb(2, 2, 65);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.login-box a {
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 20px;
+    color: white;
+
+}
+
+.login-box a:hover{
+    color: black;
+}
+
+.login-box .checkbox{
+   width: 10%;
+   
+}
+
+#recuerdame {
+    font-size: 18px;
+    color: white;
+    
+}
