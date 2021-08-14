@@ -1,108 +1,143 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: url("../img/loginwallpaper.png");
-  background-size: contain;
-  background-position: center ;
-  background-repeat: repeat;
-  height: 100vh;
-  color: black;
-  font-family: 'Raleway', serif !important;
-  font-weight: bold;
   
-
-}
-
-.login-box{
-    width: 420px;
-    height: 580px;
-    background:rgba(16, 78, 119, 0.904) ;
-    box-shadow: 1px 1px 50px rgb(2, 18, 107);
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    padding: 30px 30px;
-
-
-}
-
-
-
-.login-box h1 {
-    margin: 0px;
-    padding: 0px 0 20px;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 55px;
-    font-weight: bold;
-    color: rgb(201, 204, 16);    
-    
-
-}
-.login-box label{
+body {
     margin: 0;
-    padding:0;
+    padding: 0;
+    background: url("../img/loginwallpaper.png");
+    background-size: contain;
+    background-position: center ;
+    background-repeat: repeat;
+    height: 100vh;
+    color: black;
+    font-family: 'Raleway', serif !important;
     font-weight: bold;
-    display: block;
-    color: rgb(2, 2, 65);
-    font-size: 25px;
+    
+  
+  }
+  
+  .login-box{
+      width: 420px;
+      height: 580px;
+      background:rgba(16, 78, 119, 0.904) ;
+      box-shadow: 1px 1px 50px rgb(2, 18, 107);
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+      padding: 30px 30px;
+  
+  
+  }
+  
+  
+  
+  .login-box h1 {
+      margin: 0px;
+      padding: 0px 0 20px;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 55px;
+      font-weight: bold;
+      color: rgb(201, 204, 16);    
+      
+  
+  }
+  .login-box label{
+      margin: 0;
+      padding:0;
+      font-weight: bold;
+      display: block;
+      color: rgb(2, 2, 65);
+      font-size: 25px;
+  
+  }
+  
+  .login-box input{
+      width: 100%;
+      margin-bottom: 20px;
+      
+  }
+  
+  .login-box input[type="text"],
+  .login-box input[type="password"]{
+      border: none;
+      border-bottom: 1px solid rgba(168, 15, 117, 0.993);
+      background: transparent;
+      outline: none;
+      height: 40px;
+      color: black;
+      font-size: 25px;
+      font-weight: bold;
+  
+  }
+  
+  .login-box ::placeholder{
+      color: rgba(255, 255, 255, 0.493);
+  }
+  #login-button{
+      border: none;
+      outline: none;
+      height: 40px;
+      background: rgb(2, 2, 65);
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 20px;
+  }
+  
+  .login-box a {
+      text-decoration: none;
+      font-size: 15px;
+      line-height: 20px;
+      color: white;
+  
+  }
+  
+  .login-box a:hover{
+      color: black;
+  }
+  
+  .login-box .checkbox{
+     width: 10%;
+     
+  }
+  
+  #recuerdame {
+      font-size: 18px;
+      color: white;
+      
+  }
 
+  .btn-google {
+    color: #545454;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px 1px #ddd
 }
 
-.login-box input{
-    width: 100%;
-    margin-bottom: 20px;
+.or-container {
+    align-items: center;
+    color: #ccc;
+    display: flex;
+    margin: 15px 0
+}
+
+.line-separator {
+    background-color: #ccc;
+    flex-grow: 5;
+    height: 1px
+}
+
+.or-label {
+    flex-grow: 1;
+    margin: 0 15px;
+    text-align: center
+}
+
+.row a{
+    color: black;
+    font-weight: bold;
     
 }
-
-.login-box input[type="text"],
-.login-box input[type="password"]{
-    border: none;
-    border-bottom: 1px solid rgba(168, 15, 117, 0.993);
-    background: transparent;
-    outline: none;
-    height: 40px;
-    color: black;
-    font-size: 25px;
-    font-weight: bold;
-
-}
-
-.login-box ::placeholder{
-    color: rgba(255, 255, 255, 0.493);
-}
-#login-button{
-    border: none;
-    outline: none;
-    height: 40px;
-    background: rgb(2, 2, 65);
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 20px;
-}
-
-.login-box a {
-    text-decoration: none;
-    font-size: 15px;
-    line-height: 20px;
-    color: white;
-
-}
-
-.login-box a:hover{
-    color: black;
-}
-
-.login-box .checkbox{
-   width: 10%;
-   
-}
-
-#recuerdame {
-    font-size: 18px;
-    color: white;
-    
+.row  a:hover{
+    color: rgb(3, 19, 235);
 }
