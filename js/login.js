@@ -2,15 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-/*
-function ingreso(){
-    if(document.getElementsByName("usuario").value !== "" && 
-    document.getElementsByName("pass").value !=="" ){
-    window.location.href = "home.html"}
-    else{
-        alert("Debe llenar los campos");
-    }
-}*/
+
 
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
@@ -18,6 +10,8 @@ function onSignIn(googleUser) {
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("id_token");
   }
 
   function signOut() {
