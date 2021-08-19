@@ -130,8 +130,14 @@ body {
 .or-label {
     flex-grow: 1;
     margin: 0 15px;
-    text-align: center
+    text-align: center;
+    font-size: large;
+    
+   
 }
+      
+
+
 
 .row a{
     color: black;
