@@ -69,7 +69,7 @@ function showProductList(){
                             <small class="text-muted">` + product.soldCount + ` artículos</small>
                         </div>
                         <p class="mb-1">` + product.description + `</p>
-                        <h3> ${product.cost} ${product.currency}</h3>
+                        <h5> ${product.cost} ${product.currency}</h5>
                     </div>
                 </div>
             </a>

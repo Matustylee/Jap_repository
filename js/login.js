@@ -5,7 +5,7 @@
 
 
 function onSignIn(googleUser) {
-    var url = "../jap_repository/home.html"
+   // var url = "../jap_repository/home.html"
     var profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
@@ -14,7 +14,7 @@ function onSignIn(googleUser) {
    //token para el backend
     var id_token = googleUser.getAuthResponse().id_token;
     console.log(id_token);
-    window.location.href = url;
+   // window.location.href = url;
   }
 
   function signOut() {    
