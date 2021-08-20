@@ -21,6 +21,7 @@ function onSignIn(googleUser) {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
+      document.cookie = "nombre=; max-age=0; path=/index.html"
       window.location.href = url;
     });
   }
