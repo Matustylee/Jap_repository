@@ -14,6 +14,7 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/login.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!--Meta google con id para el desafio-->
   <meta name="google-signin-client_id" content="717573377859-rn635mvg0qt7b33u4drritmhs7v33slf.apps.googleusercontent.com">
 </head>
 <body>
@@ -38,16 +39,10 @@
         <div class="line-separator"></div>
         <div class="or-label">o</div>
         <div class="line-separator"></div>
-      </div>
-      
-        
-      <div class="g-signin2" data-onsuccess="onSignIn"></div> <a href="#" onclick="signOut();">Sign out</a>     
-      </div> <br>
-     <!--     
-    <div class="row">
-        <div class="col-md-12">
-        <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline " onclick="onSignIn()" data-onsuccess="onSignIn" src="https://accounts.google.com/o/oauth2/iframe#origin=https%3A%2F%2Fmatustylee.github.io&rpcToken=287900636.7754448" data-abc="true"><img src="img/google-logo.png"> Logea con Google</a> </div>
-    </div>  --> 
+      </div>     
+        <!--Boton google unicamente visible desde https://matustylee.github.io/jap_repository/index.html-->
+      <div class="g-signin2" data-onsuccess="onSignIn"></div> <a  class= "Logout" href="#" onclick="signOut();">Sign out google</a>     
+      </div> <br> 
      </div>
     </div>
     </form>

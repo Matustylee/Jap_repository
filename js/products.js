@@ -1,6 +1,7 @@
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Vend.";
+const ORDER_BY_COST_COUNT = "Precio";
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
@@ -30,6 +31,17 @@ function sortCategories(criteria, array){
             if ( aCount < bCount ){ return 1; }
             return 0;
         });
+     /* Agrege linea de costo*/
+    }else if (criteria === ORDER_BY_COST_COUNT){
+        result = array.sort(function(a, b) {
+            let aCount = parseInt(a.cost);
+            let bCount = parseInt(b.cost);
+
+            if ( aCount > bCount ){ return -1; }
+            if ( aCount < bCount ){ return 1; }
+            return 0;
+        });
+        
     }
 
     return result;
@@ -57,6 +69,7 @@ function showProductList(){
                             <small class="text-muted">` + product.soldCount + ` artículos</small>
                         </div>
                         <p class="mb-1">` + product.description + `</p>
+                        <h3> ${product.cost} ${product.currency}</h3>
                     </div>
                 </div>
             </a>
@@ -100,6 +113,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 document.getElementById("sortAsc").addEventListener("click", function(){
     sortAndShowProducts(ORDER_ASC_BY_NAME);
+});
+
+document.getElementById("Precio").addEventListener("click", function(){
+    sortAndShowProducts(ORDER_BY_COST_COUNT);
 });
 
 document.getElementById("sortDesc").addEventListener("click", function(){
