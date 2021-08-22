@@ -6,6 +6,8 @@ var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var maxCost = undefined;
+var minCost = undefined;
 
 function sortCategories(criteria, array){
     let result = [];
@@ -55,7 +57,8 @@ function showProductList(){
         let product = currentProductsArray[i];
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.soldCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.soldCount) <= maxCount))){
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.soldCount) <= maxCount))) 
+            {
 
             htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
@@ -75,10 +78,38 @@ function showProductList(){
             </a>
             `
         }
+        else if (((minCost == undefined) || (minCost != undefined && parseInt(product.cost) >= minCost)) &&
+        ((maxCost == undefined) || (maxCost != undefined && parseInt(product.cost) <= maxCost))) 
+        {
+            htmlContentToAppend += `
+            <a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ product.name +`</h4>
+                            <small class="text-muted">` + product.soldCount + ` artículos</small>
+                        </div>
+                        <p class="mb-1">` + product.description + `</p>
+                        <h5> ${product.cost} ${product.currency}</h5>
+                    </div>
+                </div>
+            </a>
+            `
+        }
+
 
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
+    
 }
+
+   
+
+
+
 
 
 
@@ -155,6 +186,40 @@ document.getElementById("rangeFilterCount").addEventListener("click", function()
     }
     else{
         maxCount = undefined;
+    }
+
+    showProductList();
+});
+
+
+// limpia filtros costo
+document.getElementById("clearRangeCostFilter").addEventListener("click", function(){
+    document.getElementById("rangeFilterCostMin").value = "";
+    document.getElementById("rangeFilterCostMax").value = "";
+
+    minCost = undefined;
+    maxCost = undefined;
+
+    showProductList();
+});
+document.getElementById("rangeFilterCost").addEventListener("click", function(){
+    //Obtengo el mínimo y máximo de los intervalos para filtrar por costo
+    //de productos por categoría.
+    minCost = document.getElementById("rangeFilterCostMin").value;
+    maxCost = document.getElementById("rangeFilterCostMax").value;
+
+    if ((minCost != undefined) && (minCost != "") && (parseInt(minCost)) >= 0){
+        minCost = parseInt(minCost);
+    }
+    else{
+        minCost = undefined;
+    }
+
+    if ((maxCost != undefined) && (maxCost != "") && (parseInt(maxCost)) >= 0){
+        maxCost = parseInt(maxCost);
+    }
+    else{
+        maxCost = undefined;
     }
 
     showProductList();
