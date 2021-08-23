@@ -41,8 +41,14 @@
                             <input type="radio" name="options" autocomplete="off">Z-A
                         </label>
                         <label class="btn btn-light " id="Precio" >
-                          <input type="radio" name="options" autocomplete="off" checked>Precio
+                          <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-arrow-down"></i>Precio
                         </label> 
+                        <label class="btn btn-light " id="Precios" >
+                          <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-arrow-up"></i>Precio
+                        </label> 
+                        <label class="btn btn-light" id="sortByCountMin" >
+                          <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-up-alt mr-1"></i>Vend.
+                       </label>
                         <label class="btn btn-light" id="sortByCount" >
                             <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Vend.
                         </label>
@@ -54,7 +60,7 @@
                 <div class="col-md-6 col-sm-12 mb-1 container">
                   <div class="row container p-0 m-0">
                     <div class="col">
-                      <p class="font-weight-normal text-right my-2">Vend.</p>
+                      <p class="font-weight-normal text-right my-2">Precio.</p>
                     </div>
                     <div class="col">
                       <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
