@@ -23,10 +23,10 @@
     <h1>Inicia Sesion</h1>
     <form id="formulario" action="home.html">
       <label for="usuario">Ingrese su usuario:</label>
-      <input type="text" name="usuario" placeholder="Ingrese usuario" required >
+      <input type="text" id="Users" placeholder="Ingrese usuario" required >
       <label for="pass">Ingrese su contraseña:</label>
       <input type="password" name="pass" placeholder="Ingrese contraseña" required >
-      <input type= "submit" id="login-button" value="Iniciar Sesion">
+      <input type= "submit" id="login-button" onclick="callme()" value="Iniciar Sesion">
       <div id="recuerdame-container">
         <input type="checkbox" id="checkbox1" class="checkbox" checked="checked"/>
         <span id="recuerdame">Recuérdame</span><br>
