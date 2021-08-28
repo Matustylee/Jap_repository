@@ -2,7 +2,9 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-    function callme(){
+
+
+    function userStorage(){
         var name = document.getElementById('Users').value;
         localStorage.setItem('userName', name);
     }
@@ -24,11 +26,12 @@ function onSignIn(googleUser) {
    // window.location.href = url;
   }
 
-  function signOut() {    
+  function signOut(){    
+    
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-      console.log('User signed out.');
-     
+      console.log('User signed out.');     
       
     });
+  
   }  
