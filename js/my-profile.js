@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
    if(localStorage.getItem('userName') == null){
      alert("Debe iniciar sesion para continuar");
      window.location.href = url;
-   }else{
- document.getElementById('saludo').innerHTML = "<h6>Bienvenido/a: " + localStorage.getItem('userName') + " !!<i class='far fa-user-circle' style='font-size:21px'></i> </h6>";}
+   }else{ document.getElementById('saludo').innerHTML = "<h6>Bienvenido/a: " + localStorage.getItem('userName') + " !!<i class='far fa-user-circle' style='font-size:21px'></i> </h6>";}
 });
 
 //document.getElementById('saludo').innerHTML = "Hola, " + localStorage.getItem('userName')+"!!";}
@@ -17,3 +16,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
 document.getElementById("exit").addEventListener("click", function(){
     localStorage.removeItem('userName');
 });
+
+
