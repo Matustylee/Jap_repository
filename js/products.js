@@ -8,8 +8,7 @@ var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
-//desafio 2
-const searchBar = document.getElementById('searchbar').value;
+
 
 function sortCategories(criteria, array){
     let result = [];
@@ -193,38 +192,3 @@ document.getElementById("rangeFilterCount").addEventListener("click", function()
 });
 
 
-//Evento escucha searchbar
-//searchBar.addEventListener('keyup', e => {
-    
-           //displayProducts(e.target.value.trim().toLowerCase());
-             // };
-              //triggerEvent(searchBar, 'keyup');//
- function mostrarProductos(){
-    let htmlContentToAppend = "";
-    for(let i = 0; i < currentProductsArray.length; i++){
-        let product = currentProductsArray[i];
-
-    if (searchBar == parseInt(product.name)){   
-
-        htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ product.name +`</h4>
-                            <small class="text-muted">` + product.soldCount + ` artículos</small>
-                        </div>
-                        <p class="mb-1">` + product.description + `</p>
-                        <h5> Precio ${product.cost} ${product.currency}</h5>
-                    </div>
-                </div>
-            </a>
-            `
-        }
-
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
-    }
-}
