@@ -2,6 +2,8 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 const perfilUser = document.getElementById('saludo');
+
+
 document.addEventListener("DOMContentLoaded", function (e) {
     var url = "../jap_repository/index.html"
    if(localStorage.getItem('userName') == null){
@@ -13,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   `  </a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <a class="dropdown-item" href="my-profile.html"><i class='far fa-id-card'></i> Mi Perfil</a>
      <div class="dropdown-divider"></div>
-  <a class="dropdown-item" id="exit" href="../jap_repository/index.html">Cerrar Sesion</a>
+  <a class="dropdown-item" id="exit" onclick="salir()" href="../jap_repository/index.html">Cerrar Sesion</a>
   
 </div>`;}
 });
@@ -21,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
 
-document.getElementById("exit").addEventListener("click", function(){
-    localStorage.removeItem('userName');
-});
+function salir() {
+  localStorage.removeItem('userName');
+};
 
 
