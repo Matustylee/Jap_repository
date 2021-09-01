@@ -2,9 +2,10 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-    function userStorage(){
-        var name = document.getElementById('Users').value;
-        localStorage.setItem('userName', name);
+    function userStorage(){        
+        var name = document.getElementById("Users").value;
+        localStorage.setItem('userName', JSON.stringify(name));
+        
     }
 
 
