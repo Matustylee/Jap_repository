@@ -1,11 +1,11 @@
 //desafio ENTREGA 2
 const searchBar = document.getElementById('searchbar');
-const contenedor = document.getElementById("cat-list-container");
+const contenedor = document.getElementById("product-list-container");
 let productsList = [];
 
 //EVENTO DE ESCUCHA mediante "keyup"
 searchBar.addEventListener("keyup", (e) => {
-    const searchString = e.target.value.toLowerCase();
+    const searchString = e.target.value.toLowerCase();     
 
     const filterProducts =  productsList.filter((product) => {
        return (product.name.toLowerCase().includes(searchString)) ;
@@ -47,7 +47,7 @@ const displayProduct = (products) => {
           `;
 
     }) 
-    .join('');
+    //.join('');       
     contenedor.innerHTML = htmlcontent;
 };
  

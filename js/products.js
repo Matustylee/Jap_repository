@@ -10,7 +10,7 @@ var minCount = undefined;
 var maxCount = undefined;
 
 
-function sortCategories(criteria, array){
+function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
     {
@@ -99,7 +99,7 @@ function showProductList(){
             `;
         }
 
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -113,9 +113,9 @@ function sortAndShowProducts(sortCriteria, productsArray){
         currentProductsArray = productsArray;
     }
 
-    currentProductsArray = sortCategories(currentSortCriteria, currentProductsArray);
+    currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
 
-    //Muestro las categorías ordenadas
+    //Muestro los productos ordenadas
     showProductList();
 }
 
