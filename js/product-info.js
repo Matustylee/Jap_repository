@@ -4,96 +4,72 @@
 var products = {};
 var comments = [];
 const ORDER_BY_DATATIME = "Fecha.";
+
+/* Escucha carga descripcion y carusel*/
 document.addEventListener("DOMContentLoaded", function(e){
         getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
             if (resultObj.status === "ok")
             {
                 products = resultObj.data;
     
-                let productsNameHTML  = document.getElementById("productName");
-                let productCostHTML = document.getElementById("productCost");                
+                let productsNameHTML  = document.getElementById("productName");                             
                 let productsDescriptionHTML = document.getElementById("productsDescription");
                 let soldCountHTML = document.getElementById("soldCount");
                 let relatedProductsHTML = document.getElementById("relatedProducts");
-                let gallery = document.getElementById("productImagesGallery");
+                let gallery=document.getElementById("productImagesGallery");
                 let productCategoryHTML = document.getElementById("productCategory");
             
-                productsNameHTML.innerHTML = products.name+": "+"Precio"+" "+products.currency+" "+ products.cost; ;
-                productCostHTML.innerHTML = "Precio"+" "+products.currency+" "+ products.cost;                
+                productsNameHTML.innerHTML = `${products.name} : <strong>Precio ${products.currency} ${products.cost}</strong>`;                         
                 productsDescriptionHTML.innerHTML = products.description;
                 soldCountHTML.innerHTML = products.soldCount+" "+"Articulos";
                 relatedProductsHTML.innerHTML = products.relatedProducts;
-                productCategoryHTML.innerHTML = products.category;
-                gallery.innerHTML =`
-                <div class="slideshow-container"> 
-                            
-                <div class="mySlides fade">
-                  <div class="numbertext">1 / 5</div>
-                  <img src="${products.images[0]}" style="width:100%"> 
-                  <div class="text">${products.name}</div>
+                productCategoryHTML.innerHTML = products.category;                
+                gallery.innerHTML= `<div class="carousel-item active">
+                <img src="${products.images[0]}"  class="d-block w-100" alt="${products.name}">
+                </div>
+                <div class="carousel-item">
+                <img src="${products.images[1]}" class="d-block w-100" alt="${products.name}">
+                </div>
+                <div class="carousel-item">
+                <img src="${products.images[2]}" class="d-block w-100" alt="${products.name}">
+                </div>
+                <div class="carousel-item">
+                <img src="${products.images[3]}" class="d-block w-100"  alt="${products.name}">
+                </div>
+                <div class="carousel-item">
+                <img src="${products.images[4]}" class="d-block w-100" alt="${products.name}">
                 </div>
                 
-                <div class="mySlides fade">
-                  <div class="numbertext">2 / 5</div>
-                  <img src="${products.images[1]}" style="width:100%">
-                  <div class="text">${products.name}</div>
-                </div>
-                
-                <div class="mySlides fade">
-                  <div class="numbertext">3 / 5</div>
-                  <img src="${products.images[2]}" style="width:100%">
-                  <div class="text">${products.name}</div>
-                </div>
-                
-                <div class="mySlides fade">
-                  <div class="numbertext">4 / 5</div>
-                  <img src="${products.images[3]}" style="width:100%">
-                  <div class="text">${products.name}</div>
-                </div>
-                
-                <div class="mySlides fade">
-                  <div class="numbertext">5 / 5</div>
-                  <img src="${products.images[4]}" style="width:100%">
-                  <div class="text">${products.name}</div>
-                </div>
-                
-                </div>
-                <br>
-                <div style="text-align:center">
-                  <span class="dot"onclick="currentSlide(1)"></span> 
-                  <span class="dot"onclick="currentSlide(2)"></span> 
-                  <span class="dot"onclick="currentSlide(3)"></span> 
-                  <span class="dot"onclick="currentSlide(4)"></span> 
-                  <span class="dot"onclick="currentSlide(5)"></span> 
-                </div>
                 `
-                showSlides();
-            }  
-                            
+            }                             
             
         });
     });
+    /*
 
-/*funcion para mostrar imagenes slide*/
-var slideIndex = 0;
+function carrusel(){
+  let gallery = "";
+  
+  for (let i = 1; i < products.length; i++) {
+    let imagenes = products[i];
 
-
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    gallery +=  `<div class="item">
+    <img src="${imagenes.images}"  alt="${imagenes.name}">
+    </div>`
+    
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Cambia la imagen cada 2 SEGUNDOS
-};
+
+  document.getElementById("productImagesGallery").innerHTML = gallery;
+}
+carrusel();
+*/
+    
+/* Intervalo carrusel*/
+
+
+$('.carousel').carousel({
+  interval: 3000
+})
 
 /* escucha carga productos*/
 document.addEventListener("DOMContentLoaded", function(e){
@@ -107,6 +83,8 @@ document.addEventListener("DOMContentLoaded", function(e){
       
     });
 
+
+/*Carga Comentarios*/
 function commentsPost(){
 
    let HTMLcontent = "";
@@ -139,7 +117,7 @@ function commentsPost(){
    $('.stars').stars();
 }
 
-
+/* Comentar Desafio*/
 function comentar(){
   let texto = document.getElementById("textAreaControl").value;
   let user = JSON.parse(localStorage.getItem("userName"));
