@@ -13,6 +13,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href= "css/productInfo.css" rel="stylesheet">
 </head>
 
 <body>
@@ -26,14 +27,69 @@
       <div class="dropdown" id="saludo" ></div>   
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Descripción del Producto</h2>
+        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>       
+      </div>  
+      <div class="text-center">
+      <h3 id="productName" ></h3>  
+      <div class="text-center">
+        <h5 id="productCost"></h5>
+      </div>      
+    </div>      
+      <hr class="my-3">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productsDescription"></p>
+        </dd>
+
+        <dt>Cantidad de productos Vendidos</dt>
+        <dd>
+          <p id="soldCount"></p>
+        </dd>
+
+        <dt>Productos Relacionados</dt>
+        <dd>
+          <p id="relatedProducts"></p>
+        </dd>
+        <dt>Categoria:</dt>
+        <dd id="productCategory"></dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+      </dl>
+      <div class="container">
+          <div class="row">
+          <div class="col-md-20 col-sm-12 bg-info">
+            <div class="comment-wrapper">
+              <div class="card ">
+                <div class="card-header  bg-white ">Comentarios        
+                </div>
+                <div class="card-body">
+                  <textarea class="form-control" id="textAreaControl" placeholder="Escribe un Comentario..." rows="3"></textarea>
+                  <br>
+                  <button type="button" id="commentButton" class="btn btn-info float-right">Comentar</button>
+                  <div class="clearfix"></div>
+                  <hr>
+                  <ul class="media-list" id="commentConteiner" >
+                  </ul>                  
+                 </div>
+              </div>
+            </div>
+      
+          
+      </div>
+      </div>
+    </div>    
+      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver a productos</a>
     </div>
-  </div>
+  </main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
