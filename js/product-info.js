@@ -3,6 +3,7 @@
 //elementos HTML presentes.
 var products = {};
 var comments = [];
+const ORDER_BY_DATATIME = "Fecha.";
 document.addEventListener("DOMContentLoaded", function(e){
         getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
             if (resultObj.status === "ok")
@@ -73,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         });
     });
 
-
+/*funcion para mostrar imagenes slide*/
 var slideIndex = 0;
 
 
@@ -94,7 +95,7 @@ function showSlides() {
   setTimeout(showSlides, 2000); // Cambia la imagen cada 2 SEGUNDOS
 };
 
-
+/* escucha carga productos*/
 document.addEventListener("DOMContentLoaded", function(e){
   getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
       if (resultObj.status === "ok")
@@ -111,7 +112,8 @@ function commentsPost(){
    let HTMLcontent = "";
    for (let i = 0; i < comments.length; i++) {
      let comment = comments[i];
-
+       
+     
      HTMLcontent += ` <li class="media">
      <a href="#" class="float-left">
          <img src="img/face_icon.jpg" alt="" class="img-circle">
@@ -123,12 +125,64 @@ function commentsPost(){
          <strong class="text-success ml-2" >${comment.user}</strong>
          <p class="ml-1">
              ${comment.description}
-         </p>
+         </p>     
+                 
+         <span class="stars">${comment.score}</span>       
+    
+         
      </div> </li>`
         
    }
+   
    document.getElementById("commentConteiner").innerHTML = HTMLcontent;
-
+  
+   $('.stars').stars();
 }
+
+
+function comentar(){
+  let texto = document.getElementById("textAreaControl").value;
+  let user = JSON.parse(localStorage.getItem("userName"));
+  let fecha = new Date();
+  let dia = fecha.getDay();
+  let mes = fecha.getMonth();
+  let año = fecha.getFullYear();
+  let hora=fecha.getHours(); //hora actual
+  let minuto=fecha.getMinutes(); //minuto actual
+  let segundo=fecha.getSeconds(); //segundo actual   
+  let score = document.querySelector(`input[type="radio"][name=rating]:checked`).value
+ 
+ 
+  document.getElementById("commentConteiner").innerHTML +=  ` <li class="media">
+  <a href="#" class="float-left">
+      <img src="img/face_icon.jpg" alt="" class="img-circle">
+  </a>
+  <div class="media-body">
+      <span class="text-muted float-right">
+          <p class="text-muted">${año}-${mes}-${dia} ${hora}:${minuto}:${segundo}</p>
+      </span>
+      <strong class="text-success ml-2" >${user}</strong>
+      <p class="ml-1">
+          ${texto}
+      </p>      
+      <span class="stars">${score}</span>
+  </div> </li>`
+  
+  $('.stars').stars();
+  
+}
+
+
+/*funcion mostrar score en estrellas*/
+$.fn.stars = function() {
+  return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+};
+
+
+
+
+
+
+
 
 
