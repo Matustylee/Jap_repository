@@ -4,7 +4,6 @@
 var products = {};
 var comments = [];
 var productsList = [];
-
 const ORDER_BY_DATATIME = "Fecha.";  /*probando para ordenar por fecha comentarios*/
 
 /* Escucha carga descripcion y carusel*/
@@ -15,45 +14,47 @@ document.addEventListener("DOMContentLoaded", function(e){
                 products = resultObj.data;
                 let productsNameHTML  = document.getElementById("productName");                             
                 let productsDescriptionHTML = document.getElementById("productsDescription");
-                let soldCountHTML = document.getElementById("soldCount");
-                //let relatedProductsHTML = document.getElementById("relatedProducts");
-                let gallery=document.getElementById("productImagesGallery");
+                let soldCountHTML = document.getElementById("soldCount");                
                 let productCategoryHTML = document.getElementById("productCategory");               
-            
+                
                 productsNameHTML.innerHTML = `${products.name} : <strong>Precio ${products.currency} ${products.cost}</strong>`;                         
                 productsDescriptionHTML.innerHTML = products.description;
                 soldCountHTML.innerHTML = products.soldCount+" "+"Articulos";                
                 productCategoryHTML.innerHTML = `<a href= "../jap_repository/products.html">${products.category}</a>`; 
-                gallery.innerHTML= `<div class="carousel-item active">
-                <img src="${products.images[0]}"  class="d-block w-100" alt="${products.name}">
-                </div>
-                <div class="carousel-item">
-                <img src="${products.images[1]}" class="d-block w-100" alt="${products.name}">
-                </div>
-                <div class="carousel-item">
-                <img src="${products.images[2]}" class="d-block w-100" alt="${products.name}">
-                </div>
-                <div class="carousel-item">
-                <img src="${products.images[3]}" class="d-block w-100"  alt="${products.name}">
-                </div>
-                <div class="carousel-item">
-                <img src="${products.images[4]}" class="d-block w-100" alt="${products.name}">
-                </div>
+                Imgcarusel(products.images);            
                 
-                `
-            }                             
+            }                           
             
         });
     });
     
+  //Agrego imagenes a carrusel
+ function Imgcarusel(array){
+    
+    let HTMLcontent = "";
+    for (let i = 0; i < array.length; i++) {
+      let product = array[i];
 
+      HTMLcontent += `<div class="carousel-item">   
+    <img src="${product}"  class="d-block w-100" alt="">
+    </div>                
+    `
+    }
+    document.getElementById("productImagesGallery").innerHTML = HTMLcontent;
+    // funcion add class active carousel
+    $(document).ready(function () {
+        $('#myCarousel').find('.carousel-item').first().addClass('active');
+      });
+
+ }
+ 
 /* Intervalo carrusel*/
 
 $('.carousel').carousel({
   interval: 3000
 })
 
-/* escucha carga productos*/
+/* escucha carga comentarios*/
 document.addEventListener("DOMContentLoaded", function(e){
   getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
       if (resultObj.status === "ok")
@@ -65,29 +66,29 @@ document.addEventListener("DOMContentLoaded", function(e){
       
     });
    //escucha carga productos relacionados
-    document.addEventListener("DOMContentLoaded", function(e){
-        getJSONData(PRODUCTS_URL).then(function(resultObj){
-            if (resultObj.status === "ok")
-            {
-                productsList = resultObj.data; 
-                console.log(productsList)
-                let htmlContentToAppend = "";
+document.addEventListener("DOMContentLoaded", function(e){
+   getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            productsList = resultObj.data; 
+            //console.log(productsList)
+            let htmlContentToAppend = "";
                 
-                for(let i = 0; i < productsList.length; i++){
-                    let related = productsList[i];
-                    if ( i == products["relatedProducts"][0] || i == products.relatedProducts[1] ) {
-                        console.log(related);
-                        htmlContentToAppend += `    
-                                           <div class="col-sm-6">               
-                                             <div class="card">
-                                             <a class="card-header" href= "../jap_repository/products.html" >${related.name}</a> 
-                                             <div class="card-body">
-                                            <img class="img-fluid img-thumbnail" src="${related.imgSrc}" alt="">
-                                          <p class="card-text class-muted">${related.description}</p>
-                                         <h3 class="text-center"><strong>${related.currency}${related.cost}</strong></h3>
-                                        </div>
-                                         </div>
-                                         </div> `
+              for(let i = 0; i < productsList.length; i++){
+                 let related = productsList[i];
+                   if ( i == products["relatedProducts"][0] || i == products.relatedProducts[1] ) {
+                      //console.log(related);
+                      htmlContentToAppend += `    
+                       <div class="col-sm-6">               
+                       <div class="card">
+                       <a class="card-header" href= "../jap_repository/products.html" >${related.name}</a> 
+                       <div class="card-body">
+                       <img class="img-fluid img-thumbnail" src="${related.imgSrc}" alt="">
+                       <p class="card-text class-muted">${related.description}</p>
+                       <h3 class="text-center"><strong>${related.currency}${related.cost}</strong></h3>
+                       </div>
+                       </div>
+                       </div> `
                     }
                     document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
                 }
@@ -97,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     
 
-/*Carga Comentarios*/
+/*funcion cargar Comentarios*/
 function commentsPost(){
 
    let HTMLcontent = "";
