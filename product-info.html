@@ -32,10 +32,30 @@
       <h2>Descripción del Producto</h2>
       <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>       
     </div> 
-    <div class="container mt-5">
-       
+    <div class="container mt-5">      
+      <dd>          
+        <div id="myCarousel" class="carousel slide carousel-fade " data-ride="carousel" >
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner" id="productImagesGallery">                
+          </div>          
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>          
+        </div>             
+      </dd>
       <div class="text-center">
-      <h3 id="productName"class="text-info" ></h3>  
+      <h3 id="productName" class="text-info" ></h3>  
       <div class="text-center">
         <h5 id="productCost"></h5>
       </div>      
@@ -52,45 +72,16 @@
           <p id="soldCount"></p>
         </dd>
 
-        <dt>Productos Relacionados</dt>
-        <dd>
-          <p id="relatedProducts"></p>
-        </dd>
+       
         <dt>Categoria:</dt>
         <dd >
           <p id="productCategory"></p>
         </dd>
 
-        <dt>Imágenes ilustrativas:</dt>
-        <dd>
-          
-          <div id="myCarousel" class="carousel slide carousel-fade " data-ride="carousel" >
-            <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-              <li data-target="#myCarousel" data-slide-to="3"></li>
-              <li data-target="#myCarousel" data-slide-to="4"></li>
-            </ol>
-            <div class="carousel-inner" id="productImagesGallery">              
-             
-
-            </div>
-          
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>          
-          </div>
-          
-          
-        </dd>
+       
       </dl>
       <div class="container">
+        
           <div class="row">
           <div class="col-md-20 col-sm-12 bg-info">
             <div class="comment-wrapper">
@@ -120,7 +111,14 @@
           
       </div>
       </div>
-    </div>    
+      <div class="container" >
+      <h2 class="text-center text-white bg-dark d-block" >
+        <strong>Productos Relacionados</strong>
+      </h2>
+      <div class="row" id="relatedProducts">  
+       </div>
+    </div> 
+  </div>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver a productos</a>
     </div>
   </main>
