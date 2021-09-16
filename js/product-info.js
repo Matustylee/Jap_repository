@@ -101,12 +101,12 @@ function commentsPost() {
          <p class="ml-1">
              ${comment.description}
          </p>                      
-         <span class="stars">${comment.score}</span>            
+         <div class="stars">`+ star(comment.score)+`</div>            
      </div> </li>`;
   }
   document.getElementById("commentConteiner").innerHTML = HTMLcontent;
 
-  $(".stars").stars();
+  
 }
 
 /* Comentar Desafio*/
@@ -126,7 +126,8 @@ function comentar() {
   let score = document.querySelector(
     `input[type="radio"][name=rating]:checked`
   ).value;
-
+   
+  
   document.getElementById("commentConteiner").innerHTML += ` <li class="media">
   <a href="#" class="float-left">
       <img src="img/face_icon.jpg" alt="" class="img-circle">
@@ -139,15 +140,67 @@ function comentar() {
       <p class="ml-1">
           ${texto}
       </p>      
-      <span class="stars">${score}</span>
+      <div class="stars">`+ star(score)+`</div>
   </div> </li>`;
+  
 
-  $(".stars").stars();
 }
 
-/*funcion mostrar score en estrellas*/
-$.fn.stars = function () {
+/*funcion para mostrar star mediante imagen */
+/*$.fn.stars = function () {
   return this.each(function (i, e) {
     $(e).html($("<span/>").width($(e).text() * 16));
   });
-};
+};*/
+
+/*funcion mostrar score en estrellas*/
+function star(puntaje){
+let startscore = "";
+
+if(puntaje==1){
+  startscore = ` <span class="fa fa-star green-color checked checked"></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star "></span>
+                  <span class="fa fa-star "></span>`
+}
+else if (puntaje==2){
+  startscore = ` <span class="fa fa-star green-color checked"></span>
+                 <span class="fa fa-star green-color checked "></span>
+                 <span class="fa fa-star "></span>
+  <span class="fa fa-star "></span>
+  <span class="fa fa-star "></span>`
+}
+else if (puntaje==3){
+  startscore = ` <span class="fa fa-star green-color checked"></span>
+  <span class="fa fa-star green-color checked "></span>
+  <span class="fa fa-star green-color checked"></span>
+  <span class="fa fa-star "></span>
+      <span class="fa fa-star "></span>`
+}
+
+else if (puntaje==4){
+  startscore = ` <span class="fa fa-star green-color checked"></span>
+  <span class="fa fa-star green-color checked"></span>
+  <span class="fa fa-star green-color checked"></span>
+  <span class="fa fa-star green-color checked"></span>
+  <span class="fa fa-star "></span>`
+}
+
+else if (puntaje==5){
+  startscore = ` <span class="fa fa-star green-color checked"></span>
+  <span class="fa fa-star green-color checked "></span>
+  <span class="fa fa-star green-color checked"></span>
+  <span class="fa fa-star green-color checked"></span>
+  <span class="fa fa-star green-color checked"></span>`
+}
+
+else {
+  startscore = ` <span class="fa fa-star"></span>
+  <span class="fa fa-star  "></span>
+  <span class="fa fa-star "></span>
+  <span class="fa fa-star "></span>
+  <span class="fa fa-star "></span>`
+}
+return startscore
+}
