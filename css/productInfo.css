@@ -27,11 +27,11 @@
     display: inline-block;
     border: 0;
 }
-/* Hide radio */
+/* Oculta radio */
 .rate > input {
     display: none;
 }
-/* Order correctly by floating highest to the right */
+/* Ordena correctamente el maximo valor a la derecha */
 .rate > label {
     float: right;
 }
@@ -47,13 +47,13 @@
     content: "\f005"; /* full star */
 }
 
-input:checked ~ label, /* color current and previous stars on checked */
-label:hover, label:hover ~ label { color: #73B100;  } /* color previous stars on hover */
+input:checked ~ label, /* Colorea las estrellas actuales y anteriores marcadas */
+label:hover, label:hover ~ label { color: #73B100;  } /* Color estrellas anteriores al pasar mouse */
 
 /* Hover highlights */
-input:checked + label:hover, input:checked ~ label:hover, /* highlight current and previous stars */
-input:checked ~ label:hover ~ label, /* highlight previous selected stars for new rating */
-label:hover ~ input:checked ~ label /* highlight previous selected stars */ { color: #A6E72D;  } 
+input:checked + label:hover, input:checked ~ label:hover, /* Resalta estrellas actuales y anteriores*/
+input:checked ~ label:hover ~ label, /* Resalta  estrellas seleccionadas anteriormente para nuevo rating */
+label:hover ~ input:checked ~ label /* Resalta  estrellas seleccionadas anteriormente*/ { color: #A6E72D;  } 
 
 dt{
   font-size: 25px;
