@@ -101,9 +101,9 @@ function commentsPost() {
          <p class="ml-2">
              ${comment.description}
          </p>                      
-         <div class="stars ml-2"">` +
-      star(comment.score) +
-      `</div>            
+         <div class="stars ml-2"">
+      ${star(comment.score)} 
+      </div>            
      </div> </li>`;
   }
   document.getElementById("commentConteiner").innerHTML = HTMLcontent;
@@ -140,9 +140,7 @@ function comentar() {
       <p class="ml-2">
           ${texto}
       </p>      
-      <div class="stars">` +
-    star(score) +
-    `</div>
+      <div class="stars ml-2">${star(score)} </div>
   </div> </li>` + document.getElementById("commentConteiner").innerHTML ;
 }
 
