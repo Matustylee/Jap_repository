@@ -161,9 +161,9 @@ function star(puntaje) {
 
   if (i <= puntaje) {
 
-    startscore += ` <span class="fa fa-star green-color checked "></span>`
+    startscore += ` <span class="fas fa-star green-color "></span>`
   }                  
-  else { startscore += ` <span class="fa fa-star green-color "></span>`
+  else { startscore += ` <span class="far fa-star green-color "></span>`
 
   }
   return startscore;

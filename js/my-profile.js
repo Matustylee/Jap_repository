@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
    `<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> `
    + JSON.parse(localStorage.getItem("userName")) + 
   `  </a><div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="my-profile.html"><i class='far fa-id-card'></i> Mi Perfil</a>
+    <a class="dropdown-item" href="cart.html"><i class='fas fa-shopping-cart'></i> Mi Carrito</a>
+    <a class="dropdown-item" href="my-profile.html"><i class='far fa-id-card'></i> Mi Perfil</a>    
      <div class="dropdown-divider"></div>
   <a class="dropdown-item" id="exit" onclick="salir()" href="../jap_repository/index.html">Cerrar Sesion</a>
   
