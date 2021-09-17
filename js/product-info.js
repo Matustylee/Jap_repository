@@ -137,7 +137,7 @@ function comentar() {
           <p class="text-muted">${result} ${hora}:${minuto}:${segundo}</p>
       </span>
       <strong class="text-primary ml-2" >${user}</strong>
-      <p class="ml-1">
+      <p class="ml-2">
           ${texto}
       </p>      
       <div class="stars">` +
@@ -157,42 +157,14 @@ function comentar() {
 function star(puntaje) {
   let startscore = "";
 
-  if (puntaje == 1) {
-    startscore = ` <span class="fa fa-star green-color checked checked"></span>
-                  <span class="fa fa-star "></span>
-                  <span class="fa fa-star "></span>
-                  <span class="fa fa-star "></span>
-                  <span class="fa fa-star "></span>`;
-  } else if (puntaje == 2) {
-    startscore = ` <span class="fa fa-star green-color checked"></span>
-                 <span class="fa fa-star green-color checked "></span>
-                 <span class="fa fa-star "></span>
-                 <span class="fa fa-star "></span>
-                 <span class="fa fa-star "></span>`;
-  } else if (puntaje == 3) {
-    startscore = ` <span class="fa fa-star green-color checked"></span>
-  <span class="fa fa-star green-color checked "></span>
-  <span class="fa fa-star green-color checked"></span>
-  <span class="fa fa-star "></span>
-      <span class="fa fa-star "></span>`;
-  } else if (puntaje == 4) {
-    startscore = ` <span class="fa fa-star green-color checked"></span>
-  <span class="fa fa-star green-color checked"></span>
-  <span class="fa fa-star green-color checked"></span>
-  <span class="fa fa-star green-color checked"></span>
-  <span class="fa fa-star "></span>`;
-  } else if (puntaje == 5) {
-    startscore = ` <span class="fa fa-star green-color checked"></span>
-  <span class="fa fa-star green-color checked "></span>
-  <span class="fa fa-star green-color checked"></span>
-  <span class="fa fa-star green-color checked"></span>
-  <span class="fa fa-star green-color checked"></span>`;
-  } else {
-    startscore = ` <span class="fa fa-star"></span>
-  <span class="fa fa-star  "></span>
-  <span class="fa fa-star "></span>
-  <span class="fa fa-star "></span>
-  <span class="fa fa-star "></span>`;
+  for (let i=1; i<=5; i++)
+
+  if (i <= puntaje) {
+
+    startscore += ` <span class="fa fa-star green-color checked "></span>`
+  }                  
+  else { startscore += ` <span class="fa fa-star green-color "></span>`
+
   }
   return startscore;
 }
