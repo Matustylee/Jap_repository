@@ -103,7 +103,7 @@ function showProductList() {
       htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
             <div class="row">
-                <div class="col-3">
+                <div class="col-4">
                     <img src=" ${product.imgSrc}" alt=" ${product.description} " class="img-thumbnail">
                 </div>
                 <div class="col">
@@ -112,7 +112,7 @@ function showProductList() {
                         <small class="text-muted"> ${product.soldCount} artículos</small>
                     </div>
                     <p class="mb-1"> ${product.description}  </p>
-                    <h5> Precio ${product.cost} ${product.currency}</h5>
+                    <h5 class="mt-3"> Precio ${product.cost} ${product.currency}</h5>
                 </div>
             </div>
            </a>

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     <a class="dropdown-item" href="cart.html"><i class='fas fa-shopping-cart'></i> Mi Carrito</a>
     <a class="dropdown-item" href="my-profile.html"><i class='far fa-id-card'></i> Mi Perfil</a>    
      <div class="dropdown-divider"></div>
-  <a class="dropdown-item" id="exit" onclick="salir()" href="../jap_repository/index.html">Cerrar Sesion</a>
+  <a class="dropdown-item" id="exit" onclick="salir()" href="../jap_repository/index.html"><i class="fas fa-door-closed"></i> Cerrar Sesion</a>
   
 </div>`;}
 });

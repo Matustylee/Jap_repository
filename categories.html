@@ -15,23 +15,37 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>        
-        <div class="dropdown" id="saludo" ></div>
-      </div>
+    <nav class="navbar bg-dark navbar-expand-sm fixed-top py-1">     
+      <div class="container" >
+        <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#Navbar">
+          <span class="navbar-toggler-icon navbar-icon"></span>
+        </button>         
+      
+        <div class="collapse navbar-collapse" id="Navbar">
+         <div class="navbar-nav m-auto ">
+          <a class="nav-item nav-link py-1 px-4 d-md-inline-block " href="home.html"><i class="fa fa-home fa-lg"></i> Inicio</a>
+          <a class="nav-item nav-link py-1 px-4 d-md-inline-block badge badge-pill badge-info" href="categories.html"><i class="fa fa-list-alt fa-lg" ></i> Categorías</a>
+          <a class="nav-item nav-link py-1 px-4 d-md-inline-block" href="products.html"><i class="fa fa-clipboard-check fa-lg" ></i> Productos</a>
+           <a class="nav-item nav-link py-1 px-4 d-md-inline-block" href="sell.html"><i class="fa fa-receipt fa-lg"></i> Vender</a>
+         </div>  </div>
+       <div class="navbar-brand dropdown " id="saludo" ></div>        
+       </div>    
     </nav>
     <main role="main" class="pb-5">
-        <div class="text-center p-4">
+        <div class="text-center mt-5 p-4">
             <h2>Categorías</h2>
             <p class="lead">Verás aquí todas las categorías del sitio.</p>
         </div>
         <div class="container">
             <div class="row">
+              <div class="col text-left">
+                <ol class="col-12 breadcrumb">
+                  <li class="breadcrumb-item"><a href="./home.html">Inicio</a></li>                  
+                  <li class="breadcrumb-item active">Categorias</li>
+              </ol> 
+              </div>
                 <div class="col text-right">
+                  
                     <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
                         <label class="btn btn-light active" id="sortAsc" >
                             <input type="radio" name="options" autocomplete="off" checked>A-Z
@@ -43,6 +57,7 @@
                             <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Cant.
                         </label>
                     </div>
+                
                 </div>
             </div>
             <div class="row justify-content-end">

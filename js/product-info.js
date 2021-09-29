@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
       let soldCountHTML = document.getElementById("soldCount");
       let productCategoryHTML = document.getElementById("productCategory");
 
-      productsNameHTML.innerHTML = `${products.name} : <strong>Precio ${products.currency} ${products.cost}</strong>`;
+      productsNameHTML.innerHTML = `<span class="badge badge-pill badge-warning">${products.name} :</span> <span class="badge badge-pill badge-secondary">Precio ${products.currency} ${products.cost}</span>`;
       productsDescriptionHTML.innerHTML = products.description;
-      soldCountHTML.innerHTML = products.soldCount + " " + "Articulos";
+      soldCountHTML.innerHTML = `<span class="badge badge-pill badge-success">${products.soldCount} Articulos</span>`
       productCategoryHTML.innerHTML = `<a href= "../jap_repository/products.html">${products.category}</a>`;
       Imgcarusel(products.images);
     }
@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 //Agrego imagenes a carrusel
 function Imgcarusel(array) {
   let HTMLcontent = "";
+  let htmlcontents= "";
   for (let i = 0; i < array.length; i++) {
     let product = array[i];
 
@@ -68,11 +69,14 @@ function Imgcarusel(array) {
     <img src="${product}"  class="d-block w-100" alt="">
     </div>                
     `;
+    htmlcontents+= ` <li data-target="#myCarousel" data-slide-to="${[i]}"></li>`
   }
+  document.getElementById("indicators").innerHTML= htmlcontents;
   document.getElementById("productImagesGallery").innerHTML = HTMLcontent;
   // funcion add class active carousel
   $(document).ready(function () {
     $("#myCarousel").find(".carousel-item").first().addClass("active");
+    $("#myCarousel").find("li").first().addClass("active");
   });
 }
 
