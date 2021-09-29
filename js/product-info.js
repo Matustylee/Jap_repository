@@ -28,25 +28,32 @@ document.addEventListener("DOMContentLoaded", function (e) {
       productsList = resultObj.data;
       //console.log(productsList)
       let htmlContentToAppend = "";
+     
       let relacionados = products["relatedProducts"];
       for (let i = 0; i < relacionados.length; i++) {
         let related = relacionados[i];
         let producto = productsList[related];
 
-        htmlContentToAppend += `    
-                         <div class="col-sm-6">               
-                         <div class="card">
-                         <a class="card-header" href= "../jap_repository/products.html" >${producto.name}</a> 
+         
+        htmlContentToAppend += `    <div class="carousel-item">                                       
+                         <div class="card" >
+                         <img class="card-img-top" src="${producto.imgSrc}" alt="">
                          <div class="card-body">
-                         <img class="img-fluid img-thumbnail" src="${producto.imgSrc}" alt="">
-                         <p class="card-text class-muted">${producto.description}</p>
-                         <h3 class="text-center"><strong>${producto.currency}${producto.cost}</strong></h3>
+                         <h5><a class="card-title-center" href= "../jap_repository/products.html" >${producto.name}</a></h5> 
+                         
+                         <p class="card-text">${producto.description}</p>
+                         <h3 class="text-center"><strong>${producto.currency}${producto.cost}</strong></h3> 
+                                              
                          </div>
-                         </div>
-                         </div> `;
+                         </div></div> `;
       }
+      
       document.getElementById("relatedProducts").innerHTML =
         htmlContentToAppend;
+        $(document).ready(function () {
+          $("#relatedcarusel").find(".carousel-item").first().addClass("active");
+          
+        });
     }
   });
   /* escucha carga comentarios*/
@@ -83,7 +90,7 @@ function Imgcarusel(array) {
 /* Intervalo carrusel*/
 
 $(".carousel").carousel({
-  interval: 2500,
+  interval: 3000,
 });
 
 /*funcion cargar Comentarios*/
