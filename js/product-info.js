@@ -2,7 +2,6 @@ var products = {};
 var comments = [];
 var productsList = [];
 
-
 /* Escucha carga descripcion y carusel*/
 document.addEventListener("DOMContentLoaded", function (e) {
   getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
@@ -35,25 +34,24 @@ document.addEventListener("DOMContentLoaded", function (e) {
         let producto = productsList[related];
 
          
-        htmlContentToAppend += `    <div class="carousel-item">                                       
-                         <div class="card" >
-                         <img class="card-img-top" src="${producto.imgSrc}" alt="">
-                         <div class="card-body">
-                         <h5><a class="card-title-center" href= "../jap_repository/products.html" >${producto.name}</a></h5> 
-                         
-                         <p class="card-text">${producto.description}</p>
-                         <h3 class="text-center"><strong>${producto.currency}${producto.cost}</strong></h3> 
-                                              
-                         </div>
-                         </div></div> `;
+        htmlContentToAppend += `                                          
+        <div class="col-sm-6">               
+        <div class="card">
+        <a class="card-header" href= "../jap_repository/products.html" >${producto.name}</a> 
+        <div class="card-body">
+        <img class="img-fluid img-thumbnail" src="${producto.imgSrc}" alt="">
+        <p class="card-text "><strong>${producto.description}</strong></p>
+        <h3 class="text-center"><span class="badge badge-pill badge-secondary">${producto.currency}${producto.cost}</span></h3>
+        </div>
+        </div>
+        </div> `;
       }
       
       document.getElementById("relatedProducts").innerHTML =
         htmlContentToAppend;
-        $(document).ready(function () {
-          $("#relatedcarusel").find(".carousel-item").first().addClass("active");
+        
           
-        });
+        
     }
   });
   /* escucha carga comentarios*/

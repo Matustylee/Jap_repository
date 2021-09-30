@@ -173,17 +173,11 @@ h6{
   
 }
 
-
-#Navbar>.nav-item.active>a{
-  color: red;
-}
-
 @media (min-width: 768px){
 .nav-item {
   font-size: larger;
   letter-spacing: 2px;
   color: #fff;  
-
 
 }
 }
