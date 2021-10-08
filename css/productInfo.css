@@ -93,3 +93,10 @@ span.stars>*{
 }*/
 
 
+.carousel-indicators li {
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: #efefef;
+  margin-left: 10px;
+}

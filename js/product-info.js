@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
       for (let i = 0; i < relacionados.length; i++) {
         let related = relacionados[i];
         let producto = productsList[related];
-
          
         htmlContentToAppend += `                                          
         <div class="col-sm-6">               
@@ -49,10 +48,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       
       document.getElementById("relatedProducts").innerHTML =
         htmlContentToAppend;
-        
-          
-        
-    }
+      }
   });
   /* escucha carga comentarios*/
   getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
