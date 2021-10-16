@@ -17,10 +17,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     cargarComentario = resultObj.data;
     
   }
+});    
 });
-    
-});
-
 
 /* fetch cargar el carrito y mostrarlos */
 const cargarCarrito = async () => {
@@ -39,89 +37,55 @@ const cargarCarrito = async () => {
 function displayProduct() {
     let htmlcontent = "";
     let Articles = productsList.articles
-    let total = 0;
+    let total = 0;  
+    let iva = 0; 
     
     for (let i = 0; i < Articles.length; i++) {
-      let product = Articles[i];
+      let product = Articles[i];      
       
        if (product.currency == "USD"){   
-           let subtotal = parseInt(product.unitCost*40*product.count)   
-           total += subtotal        
-      htmlcontent +=   ` 
-             
-      <tr class="shoppingCartItem">
-      
+        product.currency= product.currency.replace("USD", "UYU");
+        product.unitCost = parseInt(product.unitCost*40*product.count) 
+        subtotal = parseInt(product.unitCost*40*product.count)                  
+       }
+
+       subtotal = parseInt(product.unitCost*product.count)
+       total += subtotal;
+       htmlcontent +=   `              
+      <tr class="shoppingCartItem">      
       <td>
       <div class="cart-info ">
-      <img class="img-fluid img-thumbnail" src="${product.src}" alt="">
-      <div>
-      <p class="ItemTitle">${product.name}</p><br>
-      <a href="#">Remove</a>
-      </div>
+      <img class="img-fluid img-thumbnail" src="${product.src}" alt="">      
+      <p class="ItemTitle">${product.name}</p>          
       </div></td>
-      <td><p class="shopping-cart-price" value="${product.unitCost*40}" name=preciounitario >Precio: UYU <span class="shoppingCartItemPrice">${product.unitCost*40}</span>
-     
-     </td>
-      
-      <td><input class="shoppingCartItemQuantity" type="number"  onchange="quantityChanged(event)" value="${product.count}"></td>
-      <td class="totalUnitario"><p name=totalUnitario${i}>UYU <span>${subtotal}</span></p>
-      </div></tr>
-      
+      <td><p class="shopping-cart-price" value="${product.unitCost}" name=preciounitario >Precio: ${product.currency} <span class="shoppingCartItemPrice">${product.unitCost}</span>     
+      </td>      
+      <td><input class="shoppingCartItemQuantity" type="number" onchange="quantityChanged(event)"  value="${product.count}"></td>
+      <td class="totalUnitario"><p name=totalUnitario${i}>UYU <span>${subtotal}</span></p></td>
+      <td> <button class="btn btn-danger "  onclick="removeCartItem(event)" type="button">X</button></td>
+      </div></tr>      
        `;
-       
-      } 
-      else {
-        let subtotal = parseInt(product.unitCost*product.count)
-        total += subtotal
-
-        htmlcontent +=   `      
-        <tr class="shoppingCartItem">
-        
-        <td>
-        <div class="cart-info">
-        <img class="img-fluid img-thumbnail" src="${product.src}" alt="">
-        <div>
-        <p class="ItemTitle">${product.name}</p><br>
-        <a href="#">Remove</a>        
-        </div>
-        </div></td>
-        <td><p class="shopping-cart-price" value="${product.unitCost}" name=preciounitario >Precio: ${product.currency} <span class="shoppingCartItemPrice">${product.unitCost}</span>
-        
-        </td>
-        
-        </div>       
-        
-        <td><input class="shoppingCartItemQuantity" onchange="quantityChanged(event)"  type="number"  ; value="${product.count}"></td>
-        <td class="totalUnitario"><p name=totalUnitario${i}>UYU <span>${subtotal}</span></p>
-        </div></tr>
-        
-         `;
-      }
-         
-     };    
       
+      }  
+             
      cantidad = Articles.length       
      carrito.innerHTML = htmlcontent;
-     let iva = (total*22)/100;
+     iva = (total*22)/100;
      TotalProducto = total+iva
      localStorage.setItem('cantidadCarrito', JSON.stringify(cantidad));
-     document.querySelector(".ShoppingSubtotal").innerHTML = `${parseInt(total)} UYU`;
-     document.querySelector(".totalModal").innerHTML = `${parseInt(total)} UYU`;
-     document.querySelector(".totalIVA").innerHTML = `${parseInt(iva)} UYU`;
-     document.querySelector(".ivaModal").innerHTML = `${parseInt(iva)} UYU`;
-     document.querySelector(".shoppingCartTotal").innerHTML =  `${parseInt(TotalProducto)} UYU` ;
-     document.querySelector(".modalCartTotal").innerHTML =  `${parseInt(TotalProducto)} UYU`  ;
+     document.querySelector(".ShoppingSubtotal").innerHTML = `${parseFloat(total).toFixed(2)} UYU`;
+     document.querySelector(".totalModal").innerHTML = `${parseFloat(total).toFixed(2)} UYU`;
+     document.querySelector(".totalIVA").innerHTML = `${iva.toFixed(2)} UYU`;
+     document.querySelector(".ivaModal").innerHTML = `${iva.toFixed(2)} UYU`;
+     document.querySelector(".shoppingCartTotal").innerHTML =  `${parseFloat(TotalProducto).toFixed(2)} UYU` ;
+     document.querySelector(".modalCartTotal").innerHTML =  `${parseFloat(TotalProducto).toFixed(2)} UYU`  ;
      $(".shoppingCartTotal").val((TotalProducto));
      $(".modalCartTotal").val((TotalProducto))
-    
-    
-    
-     
     
 };
 
 /* Aumenta y disminuye value y precios */
-function updateShoppingCartTotal() {
+function updateTotal() {
   let total = 0;
   const shoppingCartTotal = document.querySelector('.shoppingCartTotal');
   const modalTotal = document.querySelector(".modalCartTotal");
@@ -133,51 +97,39 @@ function updateShoppingCartTotal() {
   const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
 
   shoppingCartItems.forEach((shoppingCartItem) => {
-    const shoppingCartItemPriceNode = shoppingCartItem.querySelector(
-      '.shoppingCartItemPrice'
+  
+    const shoppingCartItemPrice = parseFloat(shoppingCartItem.querySelector(
+      '.shoppingCartItemPrice').textContent      
     );
-    const shoppingCartItemPrice = Number(
-      shoppingCartItemPriceNode.textContent
+    const shoppingCartItemQuantity = parseFloat(shoppingCartItem.querySelector(
+      '.shoppingCartItemQuantity').value
+    );   
+    const shoppingCartUnitNode = shoppingCartItem.querySelector('.totalUnitario'
     );
-    const shoppingCartItemQuantityNode= shoppingCartItem.querySelector(
-      '.shoppingCartItemQuantity'
-    );
-    const shoppingCartItemQuantity = Number(
-      shoppingCartItemQuantityNode.value
-      
-    );
-    const shoppingCartUnitNode = shoppingCartItem.querySelector('.totalUnitario');
     shoppingCartUnitNode.querySelector('span').textContent = shoppingCartItemPrice * shoppingCartItemQuantity;
-    
-    
-    
-    
-    total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
-    
+        
+    total = total + shoppingCartItemPrice * shoppingCartItemQuantity;    
   
   });
   shoppingSubtotal.innerHTML = `${total.toFixed(2)} UYU`;
   modalSubtotal.innerHTML = `${total.toFixed(2)} UYU`;
   let iva = (total*22)/100;
   shoppingIVa.innerHTML= `${iva.toFixed(2)} UYU`;
-  modalIva.innerHTML = `${iva.toFixed(2)}UYU`;
+  modalIva.innerHTML = `${iva.toFixed(2)} UYU`;
   TotalProducto = total+iva
   modalTotal.innerHTML= `${TotalProducto.toFixed(2)}UYU`;
   shoppingCartTotal.innerHTML = `${TotalProducto.toFixed(2)} UYU`;
   $(".shoppingCartTotal").val((TotalProducto));
   $(".modalCartTotal").val((TotalProducto))
 
-}
-
-
-
+};
 
 /* Escucha selector de opcion de envio */
 precioEnvio.addEventListener("click", (e) => {
     const OpcionEnvio = document.querySelector(
         `input[type="radio"][name=options]:checked`
       ).value ; 
-       var monto = $(".modalCartTotal").textContent();
+       var monto = $(".shoppingCartTotal").text().replace("UYU", "")
        var iva = (monto*22)/100;
        var total = (parseInt(monto)+parseInt(iva))
        var envioStandar = (total*5)/100;
@@ -185,54 +137,52 @@ precioEnvio.addEventListener("click", (e) => {
        var envioPremium = (total*15)/100;
    
       if (OpcionEnvio == "1"){
+         totalconEnvio= total + envioStandar;       
+        $(".costoEnvio").text(parseFloat(envioStandar)+" "+"UYU")
+        $(".modalCartTotal").text(parseFloat(totalconEnvio)+" "+"UYU")
         
-        totalconEnvio= total + envioStandar;
-        
-        $(".modalCartTotal").val(parseInt(totalconEnvio));
-        $(".modalCartTotal").text("UYU"+" "+(totalconEnvio))
-        $(".modalCartTotal").val(parseInt(0));
       }  
-      else if (OpcionEnvio == "2"){ 
-                  
-        totalconEnvio= total + envioExpress; 
-            
-        $(".modalCartTotal").val(parseInt(totalconEnvio));
-        $(".modalCartTotal").text("UYU"+" "+(totalconEnvio))
-        
+      else if (OpcionEnvio == "2"){                   
+        totalconEnvio= total + envioExpress;             
+        $(".costoEnvio").text(parseFloat(envioExpress)+" "+"UYU")
+        $(".modalCartTotal").text(parseFloat(totalconEnvio)+" "+"UYU")          
 
       }
-      else if (OpcionEnvio == "3"){  
-           
-        totalconEnvio= total + envioPremium;
+      else if (OpcionEnvio == "3"){             
+        totalconEnvio= total + envioPremium;        
+        $(".costoEnvio").text(parseFloat(envioPremium)+" "+"UYU")
+        $(".modalCartTotal").text(parseFloat(totalconEnvio)+" "+"UYU")
         
-        $(".modalCartTotal").val(parseInt(totalconEnvio));
-        $(".modalCartTotal").text("UYU"+" "+(totalconEnvio));
-        
-
       }
-
-
-    
 });
 
 /* funcion activa tooltip*/
+$(document).ready(function(){
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
-
+  $('[data-toggle="tooltip"]').tooltip()
+})
+});
 
 /* funcion mensaje exitoso */
 function cargarMensaje(){
   let mensaje = cargarComentario.msg;
-Swal.fire({
+  Swal.fire({
   icon: 'success',
   title: mensaje
-}  
-)
-}
+})
+};
+
 /* Escucha de input */
 function quantityChanged(event) {
   const input = event.target;
   input.value <= 0 ? (input.value = 1) : null;
-  updateShoppingCartTotal();
-}
+  updateTotal();
+};
+/* Remueve item de carrito y guarda el local storage*/
+function removeCartItem(event) {
+  const buttonClicked = event.target;
+  buttonClicked.closest('.shoppingCartItem').remove();
+  cantidad =  document.querySelectorAll('.shoppingCartItem').length;
+  localStorage.setItem('cantidadCarrito', JSON.stringify(cantidad));
+  updateTotal();
+};

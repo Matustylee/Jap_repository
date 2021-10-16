@@ -1,6 +1,6 @@
-.jumbotron, .card-body, .container, .site-header{
+/*.jumbotron, .card-body, .container, .site-header{
     font-family: 'Raleway', serif !important;
-}
+}*/
 
 .jumbotron .display-4{
     font-weight: bold;
@@ -186,3 +186,6 @@ h5{
   font-size: 24px;
 }}
 
+/*body 
+  background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
+}*/

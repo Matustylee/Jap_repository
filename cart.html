@@ -51,44 +51,43 @@
           <div class="modal-body">
 
             <div class="form-group row">
-              <legend class="col-12 col-md-2   pt-0 align-self-center"> Tipo de Envio</legend>
+              <legend class="col-12 col-md-2  pt-0 align-self-center"> Tipo de Envio:</legend>
               <div class="btn-group btn-group-toggle" id="envios" data-toggle="buttons">
-              <button class="btn btn-success btn-sm  mr-1 active ">
-                <input type="radio" name="options" id="option1" autocomplete="off" value="1"
-                 data-toggle="tooltip" data-placement="top" data-html="true" title="Standard (12 a 15 días) <br> <strong>Costo del 5% sobre el subtotal. </strong>" checked> Standard
+              <button class="btn btn-success btn-sm  mr-2 active " data-toggle="tooltip" data-placement="top" data-html="true" title="Standard (12 a 15 días) <br> <strong>Costo del 5% sobre el subtotal. </strong>">
+                <input type="radio" name="options" id="option1" autocomplete="off" value="1"  > Standard
               </button>
-              <button class="btn btn-danger mr-1 btn-sm">
-                <input type="radio" name="options" id="option2" autocomplete="off" data-toggle="tooltip" data-placement="top"  data-html="true" value="2"
-                title="Express (5-8 días) <br> <strong>Costo del 7% sobre el subtotal.</strong>"> Express
+              <button class="btn btn-danger mr-2 btn-sm" autocomplete="off" data-toggle="tooltip" data-placement="top"  data-html="true" 
+              title="Express (5-8 días) <br> <strong>Costo del 7% sobre el subtotal.</strong>">
+                <input type="radio" name="options" id="option2" value="2"> Express
               </button>
-              <button class="btn btn-primary btn-sm">
-                  <input type="radio" name="options" id="option3" autocomplete="off" data-toggle="tooltip" data-placement="top" data-html="true" value="3"
-                  title="Premium (2-5 días) <br> <strong>Costo del 15% sobre el subtotal.</strong>"> Premium
+              <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" data-html="true" 
+              title="Premium (2-5 días) <br> <strong>Costo del 15% sobre el subtotal.</strong>">
+                  <input type="radio" name="options" id="option3" autocomplete="off" value="3" > Premium
                 </button>                                  
             </div>
           </div>
           <div class="form-group row">
-            <legend class="col-12 col-md-2   pt-0 align-self-center">Direccion</legend>
+            <legend class="col-12 col-md-2   pt-0 align-self-center">Direccion:</legend>
             <input  type="text "class="col-6 col-md-4  pt-0 align-self-center" value="" placeholder="Calle" ></input>
             <input  type="number"class="col-2 col-md-2  pt-0 align-self-center" value="" placeholder="N°"></input>
             <input  type="text "class="col-4 col-md-4  pt-0 align-self-center" value="" placeholder="Esquina" ></input>
           </div>
-          <div class="form-group row">              
-            <legend class="col-12 col-md-2   pt-0 align-self-center"> Costo de Envio</legend>
-            <span class="col-12 col-md-8  pt-0 align-self-center costoEnvio" value="" >0</span>
+          <div class="form-group  row-totales  row">              
+            <legend class="col-12 col-md-9 d-flex justify-content-end  pt-0 "> Costo de Envio:</legend>
+            <span class="col-12 col-md-3 align-self-center pt-0 d-flex justify-content-end  costoEnvio" value="" >0</span>
           </div>
 
-            <div class="form-group row">              
-              <legend class="col-12 col-md-2   pt-0 align-self-center"> Sub Total</legend>
-              <span class="col-12 col-md-8  pt-0 align-self-center totalModal" value="" >0</span>
+            <div class="form-group row-totales row">              
+              <legend class="col-12 col-md-9 d-flex justify-content-end  pt-0"> Sub Total:</legend>
+              <span class="col-12 col-md-3 align-self-center pt-0 d-flex justify-content-end totalModal" value="" >0</span>
             </div>
-            <div class="form-group row">
-              <legend class="col-12 col-md-2   pt-0 align-self-center"> IVA</legend>
-              <span class="col-12 col-md-2   pt-0 align-self-center ivaModal">0</span>
+            <div class="form-group row-totales row">
+              <legend class="col-12 col-md-9 d-flex justify-content-end  pt-0"> IVA:</legend>
+              <span class="col-12 col-md-3 align-self-center pt-0 d-flex justify-content-end ivaModal">0</span>
             </div>
-            <div class="form-group row">
-              <legend class="col-12 col-md-2   pt-0 align-self-center"> Total</legend>
-              <span class="col-12 col-md-2  pt-0 align-self-center modalCartTotal" >0</span>
+            <div class="form-group row-totales row">
+              <legend class="col-12 col-md-9 d-flex justify-content-end  pt-0"> Total:</legend>
+              <span class="col-12 col-md-3 align-self-center pt-0 d-flex justify-content-end modalCartTotal" >0</span>
             </div>
             <div class="form-group row">              
               <button class="btn btn-danger btn-sm ml-auto">
@@ -120,13 +119,14 @@
         <h4>Carrito</h4>
         <hr>
         <div class="table-responsive">
-          <table class="table">
+          <table class="table tabla-productos">
             <thead class="thead  text-white">
               <tr>
                   <th>Producto</th>                 
                   <th>Precio</th>  
                   <th>Cantidad</th>
-                  <th>Subtotal</th>                 
+                  <th>Subtotal</th>   
+                  <th>&nbsp;</th>              
               </tr>
           </thead >
           <tbody id="Carrito" class="shoppingCartItemsContainer">
@@ -137,7 +137,7 @@
 
           </table>
           <div class="total-price">
-            <table>
+            <table >
                 <tr>
                     <td>Subtotal:</td>
                     <td class="ShoppingSubtotal">0 UYU</td>
@@ -154,19 +154,11 @@
                    
             </div>
             <div class="form-row">
-              <a class="btn btn-secondary  mb-2 mt-4 ml-auto" href="../jap_repository/categories.html" id="cancelar">Cancelar</a>
+              <a class="btn btn-secondary  mb-2 mt-4 ml-auto cancelarButton" href="../jap_repository/categories.html" id="cancelar">Cancelar</a>
               <button class="btn btn-success mb-2 ml-1 mt-4 mr-2 comprarButton"  data-toggle="modal"
                   data-target="#pagarModal">Comprar</button></div>
               </div>
         </div>
-
-      <!--
-          <div class="form-row">
-            <a class="btn btn-secondary btn-md mb-2 ml-auto" href="../jap_repository/categories.html" id="cancelar">Cancelar</a>
-            <button class="btn btn-success btn-md ml-1 mb-2 mr-1" data-toggle="modal" data-target="#pagarModal" onclick="calcular()" id="pagar">Pagar</button>
-          </div>-->
-         
-
 
         </div>
 
