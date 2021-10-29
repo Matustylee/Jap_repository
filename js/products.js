@@ -100,25 +100,22 @@ function showProductList() {
       (maxCount == undefined ||
         (maxCount != undefined && parseInt(product.cost) <= maxCount))
     ) {
-      htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-4">
-                    <img src=" ${product.imgSrc}" alt=" ${product.description} " class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1"> ${product.name}</h4>
-                        <small class="text-muted"> ${product.soldCount} artículos</small>
-                    </div>
-                    <p class="mb-1"> ${product.description}  </p>
-                    <h5 class="mt-3"> Precio ${product.cost} ${product.currency}</h5>
-                </div>
+      htmlContentToAppend += `            
+            <div class="col-sm-6">               
+            <div class="card border-primary mb-1 "  style="max-width: 31rem";>
+            <div class="card-header "><a href="product-info.html" >${product.name}</a></div> 
+            <div class="card-body">   
+            <a href="product-info.html" >        
+            <img class="img-fluid img-thumbnail" src=" ${product.imgSrc}" alt="${product.description} "></a>           
+            <p class="card-text "><strong>${product.description} </strong></p>
+            <h3 class="text-center"><span class="badge badge-pill badge-success">${product.currency}${product.cost}</span></h3>
+            <small class="text-muted float-right"> Vendidos ${product.soldCount} artículos</small>
             </div>
-           </a>
+            </div>
+            </div>            
             `;
     }
-
+   
     document.getElementById("product-list-container").innerHTML =
       htmlContentToAppend;
   }
