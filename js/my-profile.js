@@ -84,22 +84,19 @@ function convertir(img) {
 document.addEventListener('DOMContentLoaded',()=>{
   let imgdefault = document.getElementById('userimage');
   let perfil = JSON.parse(localStorage.getItem('usuario'));
- // let imgbase64 = convertir(document.getElementById("userimage"));
+ 
  
   if (perfil != null){
       
-
     document.getElementById('nombres').value = perfil.nombre;
     document.getElementById('apellidos').value = perfil.apellidos;
     document.getElementById('email').value = perfil.email;
     document.getElementById('telefono').value = perfil.telefono;
     document.getElementById('edad').value= perfil.edad;
-    document.getElementById('userimage').src = perfil.imagen;
+    imgdefault.src = perfil.imagen;
 
   }else {
     imgdefault.src = "img/face_icon.jpg";
   }
-   
- 
-
+    
 })
