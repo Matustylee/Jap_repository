@@ -1,0 +1,23 @@
+{
+  "name": "jap_repository",
+  "version": "1.0.0",
+  "description": "Proyecto Jap Jovenes a Programar",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matustylee/Jap_repository.git"
+  },
+  "author": "Matias Morales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matustylee/Jap_repository/issues"
+  },
+  "homepage": "https://github.com/Matustylee/Jap_repository#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "leaflet": "^1.7.1"
+  }
+}

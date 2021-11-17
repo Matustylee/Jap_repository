@@ -164,12 +164,12 @@ $(function () {
 });
 
 /* funcion mensaje exitoso */
-function cargarMensaje(){
+function cargarMensaje(){ 
   let mensaje = cargarComentario.msg;
   Swal.fire({
   icon: 'success',
   title: mensaje
-})
+}) 
 };
 
 /* Escucha de input */
@@ -186,3 +186,42 @@ function removeCartItem(event) {
   localStorage.setItem('cantidadCarrito', JSON.stringify(cantidad));
   updateTotal();
 };
+
+
+
+
+
+// Disable form submissions if there are invalid fields
+(function() {
+  'use strict';
+  
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    
+    Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+         
+            
+          
+          
+        }
+        form.classList.add('was-validated');
+        
+      }, false);
+      cargarMensaje()
+      
+      
+      
+    });
+    
+    
+    
+  }, false);
+ 
+  
+})();
