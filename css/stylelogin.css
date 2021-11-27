@@ -16,8 +16,8 @@ body {
       height: 580px;
       background:rgba(16, 78, 119, 0.904) ;
       box-shadow: 1px 1px 50px rgb(2, 18, 107);
-      top: 50%;
-      left: 50%;
+      top: 25%;
+      left: 40%;
       position: absolute;
       transform: translate(-50%, -50%);
       box-sizing: border-box;
@@ -134,3 +134,16 @@ body {
     margin-left: 120px;
 }
 
+@media (max-width:768px){
+    .login-box{
+        width: 420px;
+        height: 580px;
+        background:rgba(16, 78, 119, 0.904) ;
+        box-shadow: 1px 1px 50px rgb(2, 18, 107);
+        left: 0%;
+        right: 80%;
+        top: 10%;
+        position: absolute;        
+        box-sizing: border-box;
+        padding: 30px 30px;  
+    }}

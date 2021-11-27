@@ -1,9 +1,11 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
+
+
+
 //elementos HTML presentes.
 const carrito = document.getElementById("Carrito");
 const precioEnvio = document.getElementById("envios");
-const cart_url = "https://japdevdep.github.io/ecommerce-api/cart/654.json"
 let productsList = [];
 let Articles = [];
 let cargarComentario = {};
@@ -17,7 +19,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     cargarComentario = resultObj.data;
     
   }
-});    
+}); 
+
+     
 });
 
 /* fetch cargar el carrito y mostrarlos */
@@ -188,40 +192,27 @@ function removeCartItem(event) {
 };
 
 
-
-
-
 // Disable form submissions if there are invalid fields
 (function() {
   'use strict';
-  
+
   window.addEventListener('load', function() {
     // Get the forms we want to add validation styles to
     var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    
+    // Loop over them and prevent submission   
     Array.prototype.filter.call(forms, function(form) {
       form.addEventListener('submit', function(event) {
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
-         
-            
-          
-          
+                   
         }
         form.classList.add('was-validated');
         
       }, false);
-      cargarMensaje()
-      
-      
-      
+     
     });
-    
-    
     
   }, false);
  
-  
 })();

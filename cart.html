@@ -47,12 +47,11 @@
               <button id="closepayModal" type="button" class="close" data-dismiss="modal">
                   &times;
               </button>
-
           </div>
-          <div class="modal-body">
 
-            <div class="form-group row">
-              
+          <div class="modal-body">
+            <form role="form" method="post"  action="http://localhost:3000/success" class="needs-validation" novalidate>
+            <div class="form-group row">              
               <legend class="col-12 col-md-2  pt-0 align-self-center"> Tipo de Envio:</legend>
               <div class="btn-group btn-group-toggle " id="envios" data-toggle="buttons">
               <button class="btn btn-success btn-sm  mr-2 active " data-toggle="tooltip" data-placement="top" data-html="true" title="Standard (12 a 15 días) <br> <strong>Costo del 5% sobre el subtotal. </strong>">
@@ -74,18 +73,22 @@
             <div class="invalid-feedback">Porfavor completa este campo.</div> 
           </div>
           <div class="form-group row">
-            <legend class="col-12 col-md-2   pt-0 align-self-center">Direccion:</legend>
-            <input  type="text "class="col-6 col-md-4  pt-0 align-self-center form-control" value="" placeholder="Calle" required ></input>
-            <input  type="number"class="col-2 col-md-2  pt-0 align-self-center form-control" value="" placeholder="N°" required></input>
-            <input  type="text "class="col-4 col-md-4  pt-0 align-self-center form-control" value="" placeholder="Esquina" required></input>
-            <div class="valid-feedback">Valido.</div>
-            <div class="invalid-feedback">Porfavor completa este campo.</div> 
-          </div>
+            
+            <legend class="col-12 col-md-2   pt-0 align-self-center">Direccion:</legend>            
+            <input  type="text "class="col-6 col-md-4  pt-0 align-self-center form-control" name="calle" value="" placeholder="Calle" required ></input>            
+            <input  type="number"class="col-2 col-md-2  pt-0 align-self-center form-control" name="number" value="" placeholder="N°" required></input>
+            <input  type="text "class="col-4 col-md-4  pt-0 align-self-center form-control" name="esquina" value="" placeholder="Esquina" required></input> 
+            <div class="mr-4 text-right valid-feedback">Valido.</div>
+            <div class="mr-4 text-right invalid-feedback">Porfavor completa TODOS los campos.</div>   
+             
+                  
+          </div>    
+          
           <div class="form-group  row-totales  row">              
             <legend class="col-12 col-md-9 d-flex justify-content-end  pt-0 "> Costo de Envio:</legend>
             <span class="col-12 col-md-3 align-self-center pt-0 d-flex justify-content-end  costoEnvio" value="" >0</span>
           </div>
-
+    
             <div class="form-group row-totales row">              
               <legend class="col-12 col-md-9 d-flex justify-content-end  pt-0"> Sub Total:</legend>
               <span class="col-12 col-md-3 align-self-center pt-0 d-flex justify-content-end totalModal" value="" >0</span>
@@ -96,24 +99,22 @@
             </div>
             <div class="form-group row-totales row">
               <legend class="col-12 col-md-9 d-flex justify-content-end  pt-0"> Total:</legend>
-              <span class="col-12 col-md-3 align-self-center pt-0 d-flex justify-content-end modalCartTotal" >0</span>
+              <span class="col-12 col-md-3 align-self-center pt-0 d-flex justify-content-end modalCartTotal" name="precioTotal" >0</span>
             </div>
           
              <div class="col-12 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <div class="shadow-sm  pt-4 pl-2 pr-2 pb-2">
-                           
+                        <div class="shadow-sm  pt-4 pl-2 pr-2 pb-2">                           
                             <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
                                 <li class="nav-item"> <a data-toggle="pill" href="#tarjeta" class="nav-link active "> <i class="fas fa-credit-card mr-2"></i> Tarjeta de Credito </a> </li>
                                 <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> <i class="fab fa-paypal mr-2"></i> Paypal </a> </li>
                                 <li class="nav-item"> <a data-toggle="pill" href="#net-banking" class="nav-link "> <i class="fas fa-mobile-alt mr-2"></i> Net Banking </a> </li>
                             </ul>
-                        </div> 
-                        
+                        </div>                         
                         <div class="tab-content">                            
-                            <div id="tarjeta" class="tab-pane fade show active pt-3">
-                                <form role="form" class="needs-validation" novalidate>
+                            <div id="tarjeta" class="tab-pane fade show active pt-3">                               
+                                   <div id="compra">
                                     <div class="form-group"> <label for="titularTarjeta">
                                             <h6>Nombre del titular</h6>
                                         </label> <input type="text" name="titularTarjeta" placeholder="Titular de la Tarjeta"  class="form-control" required> 
@@ -129,36 +130,34 @@
                                             </div>
                                             <div class="valid-feedback">Valido.</div>
                                        <div class="invalid-feedback">Porfavor completa este campo.</div>
-                                        </div>
-                                        
+                                        </div>                                        
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-8">
-
                                             <div class="form-group"> <label><span class="hidden-xs">
                                                         <h6>Fecha de vencimiento</h6>
                                                     </span></label>
-                                                <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control" required> 
-                                                  <input type="number" placeholder="YY" name="" class="form-control" required> 
+                                                <div class="input-group"> <input type="number" placeholder="MM" name="mes" class="form-control" required> 
+                                                  <input type="number" placeholder="YY" name="año" class="form-control" required> 
                                                   <div class="valid-feedback">Valido.</div>
-                                                  <div class="invalid-feedback">Porfavor completa este campo.</div> </div>
-                                                
-                                            </div>
-                                            
+                                                  <div class="invalid-feedback">Porfavor completa este campo.</div> </div>                                                
+                                            </div>                                            
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group mb-4"> <label data-toggle="tooltip" title="El codigo CVV de tres dígitos se encuentra en el reverso de su tarjeta">
                                                     <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
-                                                </label> <input type="text"  class="form-control" pattern="^[0-9]{3,4}$" required>
+                                                </label> <input type="text" name="cvv" class="form-control" pattern="^[0-9]{3,4}$" required>
                                                 <div class="valid-feedback">Valido.</div>
                                                 <div class="invalid-feedback">Porfavor completa este campo.</div> 
                                                 </div>
                                         </div>
                                         
                                     </div>
-                                    <div class="card-footer"> <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm" > Completar Pedido </button>
-                                </form>
+                                    <div class="card-footer"> <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm" onclick=" cargarMensaje()" > Completar Pedido </button>
+                                    </div>
+                                </form>                               
                             </div>
+                            
                         </div>
                         <div id="paypal" class="tab-pane fade pt-3">
                           <h6 class="pb-2">Selecciona tu cuenta</h6>
@@ -183,22 +182,17 @@
                               <p> <button type="button" class="btn btn-primary "><i class="fas fa-mobile-alt mr-2"></i> Proceder con el pago</button> </p>
                           </div>
                           <p >Nota: Luego de clickear el botón, Serás redireccionado a un sistema de pago seguro. Después de completar tu pago, serás redireccionado de vuelta al sitio para que veas los detalles de tu compra.</p>
-                      </div> 
-                      
+                      </div>                       
                   </div>
               </div>        
-            </div>       
+            </div>    
+          </div>
          
-            
           </div>
-
-
-          </div>
-
+          
       </div>
+      
       </div>
-  
-
   </div>
   <div class="container pb-5">
   <div class="text-center mt-5 p-4">
@@ -223,9 +217,7 @@
           </thead >
           <tbody id="Carrito" class="shoppingCartItemsContainer">
 
-
-          </tbody>
-          
+          </tbody>          
 
           </table>
           <div class="total-price">
@@ -242,8 +234,7 @@
                 <td>Total:</td>
                 <td class="shoppingCartTotal">0 UYU</td>
               </tr>
-              </table>
-                   
+              </table>                   
             </div>
             <div class="form-row">
               <a class="btn btn-secondary  mb-2 mt-4 ml-auto cancelarButton" href="../jap_repository/categories.html" id="cancelar">Cancelar</a>
@@ -251,17 +242,9 @@
                   data-target="#pagarModal">Comprar</button></div>
               </div>
         </div>
-
         </div>
-
-
-       </div>
-     
-      
-
+       </div> 
      </div>
-     
-
    </div>
    <footer class="text-muted">
     <div class="container">

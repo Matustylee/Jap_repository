@@ -7,12 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }).addTo(map);
     
     L.circle([-34.879625, -56.076622],{
-                color: 'red',
+        color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,
         radius: 100
-     } ).addTo(map)
-         
+     } ).addTo(map)         
         .bindPopup('Nuestro Local Se encuentra Aquí')
         .openPopup();
     
@@ -20,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navigator.geolocation.getCurrentPosition(
             function(position){
                 var latitude  = position.coords.latitude;
-                var longitude = position.coords.longitude;
-                console.log("Latitude : "+latitude+" Longitude : "+longitude);
+                var longitude = position.coords.longitude;               
                 L.marker([latitude, longitude]).addTo(map)
                .bindPopup('Usted Se encuentra Aquí')
                .openPopup();

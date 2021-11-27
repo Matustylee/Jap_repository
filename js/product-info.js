@@ -123,6 +123,7 @@ function comentar() {
     day: "2-digit",
     month: "2-digit",
     year: "numeric",
+
   });
   //toISOString().split('T')[0]; Para fecha yyyy/mm/dd
   let hora = fecha.getHours(); //hora actual
